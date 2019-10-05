@@ -62,3 +62,12 @@ func (s String) ToInts(f StringToInt) Int {
 	}
 	return OfInts(x...)
 }
+
+func (s String) ToAnys() Any {
+	ss := s.Collect()
+	as := make([]interface{}, len(ss))
+	for i, s := range ss {
+		as[i] = s
+	}
+	return OfAnys(as...)
+}
